@@ -4,6 +4,27 @@
 This script permanently patches Animal Crossing City Folk EUR Rev0 (RUUP01) | --------------- Script/P/ → copies all PAL languages (FRA, ENG, GER, ITA, ESP) to Script/. Your console will automatically use the correct language based on your system settings.
 with the ACCF Deluxe mod directly into the ISO — no Riivolution, no physical disc needed.
 
+
+## ⚠️ Important — Read before running the script!
+
+The script **will NOT work** if you just download and run it anywhere!
+
+You MUST place the script inside `YourFolder/` with the correct structure:
+YourFolder/          ← create this folder anywhere on your PC
+├── patch_accf_deluxe.py   ← script goes HERE
+├── ACCF_extract/          ← your extracted ISO (via WIT)
+└── accf_deluxe/           ← your mod files (from Riivolution SD)
+
+The script looks for files **relative to its own location** — if the folders are not next to the script it will fail with "File not found" errors.
+
+💡 **If your folders have different names**, you can easily fix it by asking an AI assistant (Claude, ChatGPT...):
+
+> "Can you modify this Python script to change the folder paths to match mine?"
+
+Just paste the script and tell it your folder names — it takes 10 seconds!
+
+
+
 ---
 
 ## ⚠️ Requirements
