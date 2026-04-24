@@ -10,7 +10,7 @@ with the ACCF Deluxe mod directly into the ISO — no Riivolution, no physical d
 
 - Python 3.x
 - WIT (Wiimms ISO Tools)
-- Your own legally dumped ACCF EUR Rev0 ISO (RUUP01)
+- Your own legally dumped ACCF EUR Rev0 ISO (RUUP01)    --- If you need a version adapted for USA, JPN or KOR, open an issue on the GitHub repo with your game ID and I'll update the script
 - ACCF Deluxe mod files (from the official mod page)
 
 ---
