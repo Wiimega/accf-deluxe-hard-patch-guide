@@ -1,7 +1,7 @@
 # accf-deluxe-hard-patch-guide
 ### No Riivolution needed | Works on vWii via USB Loader GX
 
-This script permanently patches Animal Crossing City Folk EUR Rev0 (RUUP01)  
+This script permanently patches Animal Crossing City Folk EUR Rev0 (RUUP01) | --------------- Script/P/ → copies all PAL languages (FRA, ENG, GER, ITA, ESP) to Script/. Your console will automatically use the correct language based on your system settings.
 with the ACCF Deluxe mod directly into the ISO — no Riivolution, no physical disc needed.
 
 ---
