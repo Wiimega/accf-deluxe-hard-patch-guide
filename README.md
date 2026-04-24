@@ -101,7 +101,7 @@ wit copy ACCF_extract ACCF_Deluxe.wbfs --wbfs
 
 ---
 
-## 🎮 USB Loader GX Settings (important!)
+## USB Loader GX Settings (important!)
 
 In USB Loader GX, go to game settings for Animal Crossing:
 - **Hooktype = None** ← very important!
@@ -110,7 +110,7 @@ In USB Loader GX, go to game settings for Animal Crossing:
 
 ---
 
-## 👏 Credits
+##  Credits
 
 - **Aurum** & the ACCF Deluxe team for the amazing mod
 - **crediar, Vague Rant & TechieSaru** for the Classic Controller patch
