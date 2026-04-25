@@ -174,28 +174,30 @@ YourFolder/
 ### ❔ How to use
 
 Step 1 — Extract your ISO
-
+````
 For USA: wit extract RUUE01.iso ACCF\_extract
-
+````
+````
 For EUR: wit extract RUUP01.iso ACCF\_extract
-
+````
 
 
 Step 2 — Run the correct script
-
+````
 For USA: python patch\_accf\_deluxe\_usa\_rev1.py
-
+````
+````
 For EUR: python patch\_accf\_deluxe\_eur\_rev0.py
-
+````
 
 
 Step 3 — Rebuild the ISO
 ```text
 
-wit extract RUUE01.iso ACCF_extract
+wit copy ACCF_extract ACCF_Deluxe.wbfs --wbfs
 ```
 ```text
-wit extract RUUP01.iso ACCF_extract
+wit copy ACCF_extract ACCF_Deluxe.wbfs --wbfs
 
 ```
 
