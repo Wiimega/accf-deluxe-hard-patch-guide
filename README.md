@@ -210,11 +210,14 @@ wit extract RUUP01.iso ACCF_extract
 
 
 Step 2 — Run the correct script
+
+For USA:
 ````
-For USA: python patch_accf_deluxe_usa_rev1.py
+ python patch_accf_deluxe_usa_rev1.py
 ````
+For EUR:
 ````
-For EUR: python patch_accf_deluxe_eur_rev0.py
+ python patch_accf_deluxe_eur_rev0.py
 ````
 
 
