@@ -198,11 +198,14 @@ YourFolder/
 ### ❔ How to use
 
 Step 1 — Extract your ISO
+
+For USA:
 ````
-For USA: wit extract RUUE01.iso ACCF_extract
+wit extract RUUE01.iso ACCF_extract
 ````
+For EUR:
 ````
-For EUR: wit extract RUUP01.iso ACCF_extract
+wit extract RUUP01.iso ACCF_extract
 ````
 
 
