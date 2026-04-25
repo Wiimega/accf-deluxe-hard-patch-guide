@@ -199,10 +199,10 @@ YourFolder/
 
 Step 1 — Extract your ISO
 ````
-For USA: wit extract RUUE01.iso ACCF\_extract
+For USA: wit extract RUUE01.iso ACCF_extract
 ````
 ````
-For EUR: wit extract RUUP01.iso ACCF\_extract
+For EUR: wit extract RUUP01.iso ACCF_extract
 ````
 
 
