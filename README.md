@@ -20,7 +20,31 @@ This guide and script permanently patch Animal Crossing City Folk directly into 
 
 \*(Make sure to use the correct Python script for your game region!)\*
 
+## 🚀 Quick Start
 
+Minimal steps to get started:
+
+### 1. Extract your ISO
+
+For EUR:
+wit extract RUUP01.iso ACCF_extract
+
+For USA:
+wit extract RUUE01.iso ACCF_extract
+
+### 2. Place files in the correct structure
+
+### 3. Run the patch script
+
+For EUR:
+python patch_accf_deluxe_eur_rev0.py
+
+For USA:
+python patch_accf_deluxe_usa_rev1.py
+
+### 4. Rebuild the game
+
+wit copy ACCF_extract ACCF_Deluxe.wbfs --wbfs
 
 \---
 
