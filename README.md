@@ -245,7 +245,8 @@ Step 3 — Rebuild the ISO
 ```text
 
 For USA: wit copy ACCF\_extract ACCF\_Deluxe\_USA.wbfs --wbfs
-
+```
+```text
 For EUR: wit copy ACCF\_extract ACCF\_Deluxe\_EUR.wbfs --wbfs
 
 ```
