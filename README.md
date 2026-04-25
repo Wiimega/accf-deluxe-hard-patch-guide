@@ -235,51 +235,13 @@ Alternative DOL = Default
 
 * Wiimmfi \& WiiLink teams for online services.
 
+## ❓ Troubleshooting
 
-
-
-
-\\---
-
-
-
-### &#x20; ❓Troubleshooting
-
-
-
-|Problem|Solution|
-
-|-|-|
-
-|Blue bus freeze|Check that all mod files are correctly copied|
-
-|Black screen|Check Hooktype = None in USB Loader GX|
-
-|Game doesn't start|Make sure you are using EUR Rev0 (RUUP01)|
-
-|Script error|Check your folder structure matches the one above|
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| Problem | Solution |
+| :--- | :--- |
+| **Blue bus freeze** | Check mod files are correctly copied |
+| **Black screen** | Check Hooktype = None in USB Loader GX |
+| **Game doesn't start** | Make sure you're using EUR Rev0 (RUUP01) or USA Rev1 (RUUE01) |
+| **Script error** | Check your folder structure matches the one above |
 
 
