@@ -48,6 +48,7 @@ YourFolder/                  <- Create this folder anywhere on your PC
 
 └── accf\_deluxe/             <- Your mod files (from the Riivolution SD zip)
 
+```
 
 
 The script looks for files \*\*relative to its own location\*\* — if the folders are not next to the script it will fail with "File not found" errors.
@@ -98,7 +99,7 @@ Depending on your region, the mod files inside accf\_deluxe/game/ will have slig
 
 ##### For USA Rev1 (RUUE01) users:
 
-
+```text
 
 YourFolder/
 
@@ -133,7 +134,7 @@ YourFolder/
 &#x20;       └── AddItem/, Banner/, FgObj/, Item/, Layout/, Npc/, Other/
 
 
-
+```
 
 
 
@@ -141,7 +142,7 @@ YourFolder/
 ##### For EUR Rev0 (RUUP01) users:
 
 
-
+```text
 YourFolder/
 
 ├── patch\_accf\_deluxe\_eur\_rev0.py
@@ -174,7 +175,7 @@ YourFolder/
 
 &#x20;       └── AddItem/, Banner/, FgObj/, Item/, Layout/, Npc/, Other/
 
-
+```
 
 ### 
 
@@ -241,12 +242,13 @@ For EUR: python patch\_accf\_deluxe\_eur\_rev0.py
 
 
 Step 3 — Rebuild the ISO
+```text
 
 For USA: wit copy ACCF\_extract ACCF\_Deluxe\_USA.wbfs --wbfs
 
 For EUR: wit copy ACCF\_extract ACCF\_Deluxe\_EUR.wbfs --wbfs
 
-
+```
 
 Step 4 — Copy to your USB drive and play!
 
@@ -278,11 +280,7 @@ Alternative DOL = Default
 
 * Aurum \& the ACCF Deluxe team for the mod.
 
-
-
 * crediar, Vague Rant \& TechieSaru for the Classic Controller patch.
-
-
 
 * Wiimmfi \& WiiLink teams for online services.
 
