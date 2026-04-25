@@ -91,93 +91,41 @@ If you need a version adapted for JPN or KOR, open an Issue on this GitHub repo 
 
 
 
-### 📁 Folder Structure Required
+## 📁 Folder Structure Required
 
 Depending on your region, the mod files inside accf\_deluxe/game/ will have slightly different names. Do NOT rename any files manually — the script expects the official release names and handles everything automatically.
 
 
-
-##### For USA Rev1 (RUUE01) users:
-
-```text
-
-YourFolder/
-
-├── patch\_accf\_deluxe\_usa\_rev1.py
-
-├── ACCF\_extract/
-
-│   └── DATA/ ... (extracted game files)
-
-└── accf\_deluxe/
-
-&#x20;   └── game/
-
-&#x20;       ├── Brewster/
-
-&#x20;       │   ├── loader\_USA\_REV\_1\_RELEASE.bin
-
-&#x20;       │   └── module\_USA\_REV\_1\_RELEASE.kmdl
-
-&#x20;       ├── WPadCL/
-
-&#x20;       │   └── wpadcl-usa-rev1-pgww.bin
-
-&#x20;       ├── Prc/
-
-&#x20;       │   └── E.bin                          <- USA/NTSC version
-
-&#x20;       ├── Script/
-
-&#x20;       │   └── E/                             <- USA/NTSC region scripts
-
-&#x20;       └── AddItem/, Banner/, FgObj/, Item/, Layout/, Npc/, Other/
-
-
 ```
-
-
-
-
-##### For EUR Rev0 (RUUP01) users:
-
-
-```text
 YourFolder/
-
-├── patch\_accf\_deluxe\_eur\_rev0.py
-
-├── ACCF\_extract/
-
-│   └── DATA/ ... (extracted game files)
-
-└── accf\_deluxe/
-
-&#x20;   └── game/
-
-&#x20;       ├── Brewster/
-
-&#x20;       │   ├── loader.EUR\_REV\_0.RELEASE.bin
-
-&#x20;       │   └── module.EUR\_REV\_0.RELEASE.kmdl
-
-&#x20;       ├── WPadCL/
-
-&#x20;       │   └── wpadcl-eur-rev0-pgww.bin
-
-&#x20;       ├── Prc/
-
-&#x20;       │   └── P.bin                          <- PAL version
-
-&#x20;       ├── Script/
-
-&#x20;       │   └── P/                             <- PAL/EUR region scripts
-
-&#x20;       └── AddItem/, Banner/, FgObj/, Item/, Layout/, Npc/, Other/
-
+├── patch_accf_deluxe.py   ← this script
+├── ACCF_extract/          ← your ISO extracted with WIT
+│   └── DATA/
+│       ├── sys/
+│       │   └── main.dol
+│       └── files/
+│           ├── Script/
+│           ├── Npc/
+│           └── ... (original game files)
+└── accf_deluxe/
+    └── game/
+        ├── Brewster/
+        │   ├── loader.EUR_REV_0.RELEASE.bin   <- keep original name!  // loader.USA_REV_1.RELEASE.bin
+        │   └── module.EUR_REV_0.RELEASE.kmdl  <- keep original name!  // module.USA_REV_1.RELEASE.kmdl
+        ├── WPadCL/
+        │   └── wpadcl-eur-rev0-pgww.bin       <- keep original name!  // wpadcl-usa-rev1-pgww.bin
+        ├── AddItem/
+        ├── Banner/
+        ├── FgObj/
+        ├── Item/
+        ├── Layout/
+        ├── Npc/
+        ├── Other/
+        ├── Prc/
+        │   └── P.bin                          <- PAL version  // E.bin <- USA 
+        └── Script/
+            └── P/                             <- PAL/EUR region scripts  //  E/ 
 ```
-
-### 
 
 ### 📋 What the script does automatically
 
@@ -244,10 +192,10 @@ For EUR: python patch\_accf\_deluxe\_eur\_rev0.py
 Step 3 — Rebuild the ISO
 ```text
 
-For USA: wit copy ACCF\_extract ACCF\_Deluxe\_USA.wbfs --wbfs
+wit extract RUUE01.iso ACCF_extract
 ```
 ```text
-For EUR: wit copy ACCF\_extract ACCF\_Deluxe\_EUR.wbfs --wbfs
+wit extract RUUP01.iso ACCF_extract
 
 ```
 
