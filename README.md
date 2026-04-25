@@ -42,11 +42,11 @@ You MUST place the script inside `YourFolder/` with the correct structure:
 
 YourFolder/                  <- Create this folder anywhere on your PC
 
-├── patch\_accf\_deluxe.py     <- Your script goes HERE (EUR or USA version)
+├── patch_accf_deluxe.py     <- Your script goes HERE (EUR or USA version)
 
-├── ACCF\_extract/            <- Your extracted ISO (via WIT)
+├── ACCF_extract/            <- Your extracted ISO (via WIT)
 
-└── accf\_deluxe/             <- Your mod files (from the Riivolution SD zip)
+└── accf_deluxe/             <- Your mod files (from the Riivolution SD zip)
 
 ```
 
@@ -184,10 +184,10 @@ For EUR: wit extract RUUP01.iso ACCF\_extract
 
 Step 2 — Run the correct script
 ````
-For USA: python patch\_accf\_deluxe\_usa\_rev1.py
+For USA: python patch_accf_deluxe_usa_rev1.py
 ````
 ````
-For EUR: python patch\_accf\_deluxe\_eur\_rev0.py
+For EUR: python patch_accf_deluxe_eur_rev0.py
 ````
 
 
