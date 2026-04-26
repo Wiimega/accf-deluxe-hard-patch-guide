@@ -28,9 +28,9 @@ MOD_FOLDER     = r"accf_deluxe"    # Mod folder (from Riivolution SD card)
 # ------------------------------------
 
 DOL    = os.path.join(EXTRACT_FOLDER, "DATA", "sys", "main.dol")
-LOADER = os.path.join(MOD_FOLDER, "game", "Brewster", "loader_USA_REV_1_RELEASE.bin")
+LOADER = os.path.join(MOD_FOLDER, "game", "Brewster", "loader.USA_REV_1.RELEASE.bin")
 WPAD   = os.path.join(MOD_FOLDER, "game", "WPadCL", "wpadcl-usa-rev1-pgww.bin")
-MODULE = os.path.join(MOD_FOLDER, "game", "Brewster", "module_USA_REV_1_RELEASE.kmdl")
+MODULE = os.path.join(MOD_FOLDER, "game", "Brewster", "module.USA_REV_1.RELEASE.kmdl")
 
 print("=" * 60)
 print("  ACCF City Folk Deluxe - Hard Patcher")
@@ -45,9 +45,9 @@ print("🔍 Checking files...")
 all_ok = True
 for path, name in [
     (DOL,    "main.dol"),
-    (LOADER, "loader_USA_REV_1_RELEASE.bin"),
+    (LOADER, "loader.USA_REV_1.RELEASE.bin"),
     (WPAD,   "wpadcl-usa-rev1-pgww.bin"),
-    (MODULE, "module_USA_REV_1_RELEASE.kmdl"),
+    (MODULE, "module.USA_REV_1.RELEASE.kmdl"),
 ]:
     if not os.path.exists(path):
         print(f"  ❌ Not found: {path}")
