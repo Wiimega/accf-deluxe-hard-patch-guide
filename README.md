@@ -14,7 +14,7 @@ This guide and script permanently patch Animal Crossing City Folk directly into 
 
 &#x20;   **EUR Rev0  (RUUP01)**
 
-&#x20;   **USA Rev1  (RUUE01)** 
+&#x20;   **⏳USA Rev1  (RUUE01)** 
 
 🛑 I had to remove the script (RUUE01) because it was causing too many problems (incorrect offset, etc.); I’ll update it soon 
 
