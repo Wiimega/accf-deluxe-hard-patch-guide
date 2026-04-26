@@ -193,3 +193,4 @@ if hook_ok and loader_ok and kmdl_ok:
 else:
     print("❌ PATCH INCOMPLETE - check errors above!")
 print("=" * 60)
+
