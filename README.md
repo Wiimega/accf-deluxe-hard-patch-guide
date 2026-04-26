@@ -226,10 +226,6 @@ Step 3 — Rebuild the ISO
 
 wit copy ACCF_extract ACCF_Deluxe.wbfs --wbfs
 ```
-```text
-wit copy ACCF_extract ACCF_Deluxe.wbfs --wbfs
-
-```
 
 Step 4 — Copy to your USB drive and play!
 
