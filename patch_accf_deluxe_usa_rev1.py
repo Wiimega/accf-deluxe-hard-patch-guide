@@ -1,78 +1,81 @@
 import struct, shutil, os
 
 # ============================================================
-# ACCF City Folk Deluxe - DOL Patcher (CORRECTED OFFSETS)
-# For USA Rev1 (RUUE01) - Based on Dolphin Logs
+# ACCF City Folk Deluxe - DOL Patcher
+# For USA Rev1 (RUUE01) - vWii / USB Loader GX
+# No Riivolution needed!
+# ============================================================
+# Credits:
+# - Aurum & ACCF Deluxe team for the mod
+# - crediar, Vague Rant & TechieSaru for Classic Controller patch
 # ============================================================
 
-# ---- CONFIGURATION DES CHEMINS ----
-EXTRACT_FOLDER = r"ACCF_extract"
-MOD_FOLDER     = r"accf_deluxe"
-# ------------------------------------
+# ---- CONFIGURE YOUR PATHS HERE ----
+EXTRACT_FOLDER = r"ACCF_extract"   # Your WIT/BrawlBox extract folder
+MOD_FOLDER     = r"accf_deluxe"    # Mod folder (containing 'game' folder)
 
-DOL    = os.path.join(EXTRACT_FOLDER, "DATA", "sys", "main.dol")
-LOADER = os.path.join(MOD_FOLDER, "game", "Brewster", "loader.USA_REV_1.RELEASE.bin")
-WPAD   = os.path.join(MOD_FOLDER, "game", "WPadCL", "wpadcl-usa-rev1-pgww.bin")
-MODULE = os.path.join(MOD_FOLDER, "game", "Brewster", "module.USA_REV_1.RELEASE.kmdl")
+# File Paths
+DOL     = os.path.join(EXTRACT_FOLDER, "sys", "main.dol")
+LOADER  = os.path.join(MOD_FOLDER, "game", "Brewster", "loader.USA_REV_1.RELEASE.bin")
+MODULE  = os.path.join(MOD_FOLDER, "game", "Brewster", "module.USA_REV_1.RELEASE.kmdl")
+FILES_DIR = os.path.join(EXTRACT_FOLDER, "files")
 
-print("🔍 Vérification des fichiers...")
-if not os.path.exists(DOL):
-    print(f"❌ Erreur: {DOL} introuvable !"); exit(1)
+def patch_dol():
+    if not os.path.exists(DOL):
+        print(f"❌ Error: {DOL} not found!")
+        return
 
-# Création du backup
-if not os.path.exists(DOL + ".bak"):
-    shutil.copy(DOL, DOL + ".bak")
+    print(f"🚀 Patching {DOL} for USA Rev1...")
 
-with open(DOL, 'rb') as f:
-    dol = bytearray(f.read())
+    with open(DOL, 'rb+') as f:
+        # 1. Main Hook (Brewster)
+        # RAM: 0x8016BC90 -> File: 0x00166CB0
+        # Value: 48344CE0 (b 0x804B0970)
+        f.seek(0x00166CB0)
+        f.write(struct.pack(">I", 0x48344CE0))
+        print("  ✅ Core Hook applied.")
 
-print("🔧 Application des patchs avec les offsets corrigés...")
+        # 2. Loader Injection
+        # RAM: 0x804B0970 -> File: 0x004ACA70
+        if os.path.exists(LOADER):
+            with open(LOADER, 'rb') as l:
+                loader_data = l.read()
+            f.seek(0x004ACA70)
+            f.write(loader_data)
+            print(f"  ✅ Loader injected ({len(loader_data)} bytes).")
+        else:
+            print("  ⚠️ Warning: Loader .bin not found, skipping injection.")
 
-# 1. Brewster Hook (RAM 0x8016BC90)
-# Offset fichier corrigé selon log Dolphin : 0x001A49B0
-dol[0x001A49B0:0x001A49B4] = bytes.fromhex("48344CE0")
-print("  ✅ Hook Brewster corrigé (0x001A49B0)")
+        # 3. Classic Controller Patches (USA Rev1 specific)
+        cc_patches = [
+            (0x000F5644, 0x4BF071DC), # PadRead
+            (0x003BC9D4, 0x00001800), # PadInit
+            (0x003BCA14, 0x00001800), # PadSetSpec
+            (0x003BCA30, 0x00001800), # PadGetType
+        ]
+        
+        for offset, value in cc_patches:
+            f.seek(offset)
+            f.write(struct.pack(">I", value))
+        print("  ✅ Classic Controller patches applied.")
 
-# 2. Injection du Loader (RAM 0x804B0970)
-# Offset fichier corrigé selon log Dolphin : 0x004EA770
-with open(LOADER, 'rb') as lb:
-    loader_data = lb.read()
-dol[0x004EA770:0x004EA770 + len(loader_data)] = loader_data
-print(f"  ✅ Loader injecté (0x004EA770)")
+    # 4. Copying External Files
+    print("\n📂 Copying mod files to 'files' directory...")
+    
+    # Copy Script/E/ content to Script/
+    script_src = os.path.join(MOD_FOLDER, "game", "Script", "E")
+    script_dst = os.path.join(FILES_DIR, "Script")
+    if os.path.exists(script_src):
+        shutil.copytree(script_src, script_dst, dirs_exist_ok=True)
+        print("  ✅ Script files updated.")
 
-# 3. Injection WPADCL (Nouvelle section DOL)
-with open(WPAD, 'rb') as wb:
-    wpad_data = wb.read()
-pad = (32 - len(dol) % 32) % 32
-dol += b'\x00' * pad
-new_offset = len(dol)
-dol += wpad_data
-struct.pack_into('>I', dol, 0x1C + 8*4, new_offset)    # File Offset
-struct.pack_into('>I', dol, 0x64 + 8*4, 0x80001800)   # RAM Addr
-struct.pack_into('>I', dol, 0xAC + 8*4, len(wpad_data)) # Size
-print(f"  ✅ Section WPADCL ajoutée à 0x{new_offset:X}")
+    # Copy module.kmdl to root
+    kmdl_dst = os.path.join(FILES_DIR, "module.kmdl")
+    if os.path.exists(MODULE):
+        shutil.copy(MODULE, kmdl_dst)
+        print("  ✅ module.kmdl copied.")
 
-# 4. Patchs Manette Classique (Offsets recalculés)
-# Formule : RAM - 0x800075C0 + 0x000402E0
-cc_patches = [
-    (0x00133344, "4BF071DC"), # RAM 0x800FA624
-    (0x001333AC, "4BF0718C"), # RAM 0x800FA68C
-    (0x00306FA4, "48000010"), # RAM 0x802CE284
-    (0x0047CC6C, "4BBBD8E4"), # RAM 0x80443F4C
-    (0x0047CC88, "4BBBD8E0"), # RAM 0x80443F68
-    (0x003F76D8, "4BC42EA8"), # RAM 0x803BE9B8
-    (0x003F870C, "4BC41F44"), # RAM 0x803BF9EC
-]
-for offset, value in cc_patches:
-    dol[offset:offset+4] = bytes.fromhex(value)
-print("  ✅ Patchs Classic Controller corrigés")
+    print("\n✨ Done! You can now rebuild the ISO with WIT.")
 
-with open(DOL, 'wb') as f:
-    f.write(dol)
-
-# Copie du module.kmdl à la racine (Indispensable !)
-files_dir = os.path.join(EXTRACT_FOLDER, "DATA", "files")
-shutil.copy(MODULE, os.path.join(files_dir, "module.kmdl"))
-print("  ✅ module.kmdl copié à la racine du disque")
-
-print("\n🎉 TERMINÉ ! Reconstruis ton ISO et teste sur Dolphin.")
+if __name__ == "__main__":
+    patch_dol()
