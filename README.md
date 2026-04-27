@@ -42,7 +42,7 @@ For EUR:
 python patch_accf_deluxe_eur_rev0.py
 
 For USA:
-python patch_accf_deluxe_usa_rev1.py
+python patch_accf_deluxe_usa_rev0.py
 
 ### 4. Rebuild the game
 
@@ -105,7 +105,7 @@ WIT (Wiimms ISO Tools)
 
 
 
-Your own legally dumped ACCF ISO: EUR Rev0 (RUUP01) OR USA Rev1 (RUUE01)
+Your own legally dumped ACCF ISO: EUR Rev0 (RUUP01) OR USA Rev0 (RUUE01)
 
 
 
@@ -136,10 +136,10 @@ YourFolder/
 └── accf_deluxe/
     └── game/
         ├── Brewster/
-        │   ├── loader.EUR_REV_0.RELEASE.bin   <- keep original name!  // loader.USA_REV_1.RELEASE.bin
-        │   └── module.EUR_REV_0.RELEASE.kmdl  <- keep original name!  // module.USA_REV_1.RELEASE.kmdl
+        │   ├── loader.EUR_REV_0.RELEASE.bin   <- keep original name!  // loader.USA_REV_0.RELEASE.bin
+        │   └── module.EUR_REV_0.RELEASE.kmdl  <- keep original name!  // module.USA_REV_0.RELEASE.kmdl
         ├── WPadCL/
-        │   └── wpadcl-eur-rev0-pgww.bin       <- keep original name!  // wpadcl-usa-rev1-pgww.bin
+        │   └── wpadcl-eur-rev0-pgww.bin       <- keep original name!  // wpadcl-usa-rev0-pgww.bin
         ├── AddItem/
         ├── Banner/
         ├── FgObj/
@@ -215,7 +215,7 @@ Step 2 — Run the correct script
 
 For USA:
 ````
- python patch_accf_deluxe_usa_rev1.py
+ python patch_accf_deluxe_usa_rev0.py
 ````
 For EUR:
 ````
